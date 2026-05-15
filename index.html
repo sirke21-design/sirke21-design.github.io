@@ -1,0 +1,853 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Miloš Sirotanović — Portfolio &amp; CV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --primary:#1A1F2E; --accent:#E07856; --bg:#FAFAF7; --body:#2A2A2A;
+  --muted:#6B7280; --surface:#FFFFFF; --border:#E5E7EB;
+  --font-display:'Inter Tight','Inter',system-ui,sans-serif;
+  --font-body:'Inter',system-ui,sans-serif;
+  --font-mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--body);font-family:var(--font-body);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+h1,h2,h3,h4{font-family:var(--font-display);color:var(--primary);margin:0;line-height:1.15;letter-spacing:-0.015em;font-weight:700}
+h1{font-size:64px}
+h2{font-size:36px;margin-bottom:8px}
+h3{font-size:22px;font-weight:600}
+h4{font-size:16px;font-weight:600}
+p{margin:0 0 12px}
+.mono{font-family:var(--font-mono);font-size:13px}
+.muted{color:var(--muted)}
+.eyebrow{font-family:var(--font-display);font-size:11px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+
+/* nav */
+nav.top{position:sticky;top:0;z-index:50;background:rgba(250,250,247,0.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+nav.top .inner{max-width:1100px;margin:0 auto;padding:14px 28px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+nav.top .brand{font-family:var(--font-display);font-weight:700;color:var(--primary);font-size:15px;letter-spacing:-0.01em}
+nav.top .brand .dot{display:inline-block;width:7px;height:7px;background:var(--accent);border-radius:50%;margin-right:8px;vertical-align:middle}
+nav.top ul{list-style:none;display:flex;gap:22px;padding:0;margin:0;font-size:13px}
+nav.top a{color:var(--body);font-weight:500}
+nav.top a:hover{color:var(--accent);text-decoration:none}
+nav.top a[href="#cv"]{background:var(--primary);color:#fff;padding:6px 14px;border-radius:20px;font-weight:600;transition:background 0.15s ease}
+nav.top a[href="#cv"]:hover{background:var(--accent);color:#fff}
+
+/* layout */
+section.block{max-width:1100px;margin:0 auto;padding:96px 28px;scroll-margin-top:64px}
+section.block + section.block{padding-top:32px}
+hr.rule{border:0;height:1px;background:var(--border);margin:10px 0 28px}
+
+/* hero */
+.hero{background:var(--primary);color:#fff;padding:120px 28px 100px}
+.hero .inner{max-width:1100px;margin:0 auto}
+.hero h1{color:#fff;font-size:88px;letter-spacing:-0.03em;line-height:0.95}
+.hero h1 span{color:var(--accent)}
+.hero .role{margin-top:16px;color:#cbd0db;font-size:17px}
+.hero .accent-bar{width:120px;height:4px;background:var(--accent);margin:28px 0}
+.hero .tagline{font-family:var(--font-display);font-weight:600;color:#fff;font-size:24px;max-width:640px;line-height:1.35}
+.hero .meta{margin-top:48px;display:flex;gap:32px;flex-wrap:wrap;font-size:13px;color:#a4abbb;border-top:1px solid rgba(255,255,255,0.1);padding-top:20px}
+
+/* about */
+.two-col{display:grid;grid-template-columns:1.35fr 1fr;gap:48px}
+@media(max-width:780px){.two-col{grid-template-columns:1fr}}
+.bio-lead{font-family:var(--font-display);font-weight:600;color:var(--primary);font-size:20px;line-height:1.4;margin-bottom:16px}
+.facts{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:24px}
+.facts h4{font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;font-weight:600}
+.facts ul{list-style:none;padding:0;margin:0}
+.facts li{padding:10px 0;border-bottom:1px solid var(--border)}
+.facts li:last-child{border-bottom:0}
+.facts .k{display:block;font-family:var(--font-display);font-weight:600;color:var(--primary);font-size:14px}
+.facts .v{color:var(--muted);font-size:13px}
+
+/* featured */
+.featured-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:40px;box-shadow:0 4px 20px rgba(0,0,0,0.04)}
+.featured-card .one-liner{font-family:var(--font-display);font-weight:600;color:var(--primary);font-size:22px;line-height:1.4;margin-bottom:24px;max-width:820px}
+.ps-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-bottom:24px}
+@media(max-width:780px){.ps-grid{grid-template-columns:1fr}}
+.ps-block .label{font-family:var(--font-display);font-weight:700;text-transform:uppercase;font-size:11px;letter-spacing:0.16em;color:var(--accent);margin-bottom:6px}
+.stack-strip{background:var(--primary);color:#fff;padding:14px 20px;border-radius:8px;font-family:var(--font-mono);font-size:12.5px}
+
+/* arch / pillars */
+.choices{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:32px}
+@media(max-width:780px){.choices{grid-template-columns:1fr}}
+.choice{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:20px 22px}
+.choice h4{color:var(--accent);font-size:13px;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px}
+.choice p{font-size:14px;line-height:1.55;margin:0}
+
+/* differentiators */
+.diff-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:8px}
+@media(max-width:780px){.diff-grid{grid-template-columns:1fr}}
+.diff{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:24px 26px;position:relative}
+.diff .num{position:absolute;top:18px;right:22px;font-family:var(--font-display);font-weight:700;font-size:36px;color:var(--accent);opacity:0.45;line-height:1}
+.diff h4{margin-bottom:8px;padding-right:40px}
+
+/* ecosystem grid */
+.eco-table{margin-top:24px;background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;font-size:13px}
+.eco-table table{width:100%;border-collapse:collapse}
+.eco-table th{text-align:left;background:var(--primary);color:#fff;font-family:var(--font-display);font-weight:600;padding:12px 16px;font-size:12px;letter-spacing:0.04em}
+.eco-table td{padding:10px 16px;border-top:1px solid var(--border);vertical-align:top}
+.eco-table td.stack{font-family:var(--font-mono);font-size:12px;color:var(--muted)}
+.badge{display:inline-block;font-size:10.5px;font-weight:600;padding:2px 9px;border-radius:999px;background:rgba(224,120,86,0.12);color:var(--accent);letter-spacing:0.04em}
+
+/* tool cards */
+.section-sub{font-family:var(--font-display);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.16em;color:var(--muted);margin:48px 0 14px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.section-sub:first-of-type{margin-top:32px}
+.cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:980px){.cards-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.cards-grid{grid-template-columns:1fr}}
+.tool-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:18px 20px;cursor:pointer;transition:transform 0.15s ease,box-shadow 0.2s ease,border-color 0.2s ease;display:flex;flex-direction:column;text-align:left;font:inherit;color:inherit;width:100%}
+.tool-card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.06);border-color:var(--accent)}
+.tool-card h4{font-size:15px;color:var(--primary);margin-bottom:8px;padding-left:18px;position:relative}
+.tool-card h4::before{content:"";position:absolute;left:0;top:6px;width:10px;height:10px;background:var(--accent);border-radius:3px}
+.tool-card .preview{font-size:13.5px;line-height:1.5;color:var(--body);margin:0 0 12px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.tool-card .meta{margin-top:auto;font-family:var(--font-mono);font-size:11px;color:var(--muted);line-height:1.45;padding-top:10px;border-top:1px solid var(--border)}
+.tool-card .open-hint{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--accent);margin-top:8px}
+.tool-card .open-hint::after{content:" →";transition:transform 0.15s ease;display:inline-block}
+.tool-card:hover .open-hint::after{transform:translateX(3px)}
+
+/* beyond */
+.beyond-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media(max-width:780px){.beyond-grid{grid-template-columns:1fr}}
+.beyond-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:28px}
+.beyond-card .tag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.beyond-wide{margin-top:24px;background:var(--primary);color:#fff;border-radius:12px;padding:28px}
+.beyond-wide h3{color:#fff;margin-bottom:6px}
+.beyond-wide .tag{color:var(--accent);display:inline-block;font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:8px}
+.beyond-wide p{color:#cbd0db;margin:0}
+
+/* skills */
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px}
+@media(max-width:980px){.skills-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.skills-grid{grid-template-columns:1fr}}
+.skill-col{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:18px 20px}
+.skill-col h4{color:var(--accent);font-size:12px;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:10px}
+.skill-col ul{list-style:none;padding:0;margin:0;font-size:13.5px;line-height:1.85}
+.skill-col li{padding-left:14px;position:relative}
+.skill-col li::before{content:"";position:absolute;left:0;top:13px;width:6px;height:1px;background:var(--accent)}
+.principles{margin-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:24px 40px}
+@media(max-width:780px){.principles{grid-template-columns:1fr}}
+.principle{display:flex;gap:16px}
+.principle .n{font-family:var(--font-display);font-weight:700;font-size:30px;color:var(--accent);line-height:1;min-width:32px}
+.principle h4{margin-bottom:4px}
+.principle p{font-size:13.5px;line-height:1.55;margin:0}
+
+/* toolkit list items */
+.tk-list li{padding:8px 0 8px 0 !important;border-bottom:1px dashed var(--border)}
+.tk-list li::before{display:none !important}
+.tk-list li:last-child{border-bottom:0}
+.tk-n{display:block;font-family:var(--font-display);font-weight:600;color:var(--primary);font-size:14px}
+.tk-note{display:block;font-family:var(--font-mono);font-size:11px;color:var(--muted);margin-top:2px}
+
+/* contact */
+.contact-wrap{background:var(--primary);color:#fff;border-radius:16px;padding:64px 48px;text-align:center}
+.contact-wrap h2{color:#fff;font-size:48px;margin-bottom:8px}
+.contact-wrap .lead{color:#cbd0db;font-family:var(--font-display);font-size:18px;margin-bottom:36px}
+.contact-list{max-width:520px;margin:0 auto;list-style:none;padding:0}
+.contact-list li{display:flex;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,0.12);padding:14px 0;font-size:14px}
+.contact-list .lbl{color:#a4abbb;font-size:11px;text-transform:uppercase;letter-spacing:0.14em}
+.contact-list .val{font-family:var(--font-display);font-weight:600;color:#fff}
+.contact-list a.val{color:var(--accent)}
+.avail{max-width:520px;margin:24px auto 0;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:18px;font-size:14px;color:#cbd0db}
+.avail .tag{display:block;font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+
+/* footer */
+footer.bottom{padding:36px 28px;text-align:center;font-size:12px;color:var(--muted);border-top:1px solid var(--border)}
+
+/* ===== CV section ===== */
+.cv-wrap{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:48px;box-shadow:0 4px 20px rgba(0,0,0,0.04);margin-top:8px}
+.cv-head{border-bottom:2px solid var(--primary);padding-bottom:24px;margin-bottom:28px}
+.cv-head .name{font-family:var(--font-display);font-weight:700;font-size:34px;color:var(--primary);letter-spacing:-0.02em;line-height:1.05;margin-bottom:6px}
+.cv-head .title{font-family:var(--font-display);font-weight:600;color:var(--accent);font-size:14px;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:14px}
+.cv-head .contact{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:13px;color:var(--muted)}
+.cv-head .contact a{color:var(--primary);font-weight:500}
+.cv-head .contact a:hover{color:var(--accent)}
+.cv-photo{width:140px;height:140px;border-radius:50%;overflow:hidden;background:var(--primary);display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--font-display);font-weight:700;font-size:42px;letter-spacing:-0.02em;border:3px solid var(--accent)}
+@media(max-width:680px){.cv-photo{width:110px;height:110px;font-size:34px}}
+.cv-photo img{width:100%;height:100%;object-fit:cover;display:block}
+
+.cv-section{margin-top:28px}
+.cv-section:first-of-type{margin-top:0}
+.cv-section h3{font-family:var(--font-display);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.16em;color:var(--accent);padding-bottom:8px;border-bottom:1px solid var(--border);margin-bottom:14px}
+.cv-section p{font-size:14px;line-height:1.6;color:var(--body)}
+
+.cv-skill-row{display:grid;grid-template-columns:170px 1fr;gap:16px;padding:10px 0;border-bottom:1px dashed var(--border);font-size:13.5px}
+.cv-skill-row:last-child{border-bottom:0}
+.cv-skill-row .lbl{font-family:var(--font-display);font-weight:600;color:var(--primary);font-size:12.5px}
+.cv-skill-row .val{color:var(--body);line-height:1.55}
+@media(max-width:680px){.cv-skill-row{grid-template-columns:1fr;gap:4px}}
+
+.cv-job{padding:16px 0;border-bottom:1px solid var(--border)}
+.cv-job:last-child{border-bottom:0}
+.cv-job-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:2px;flex-wrap:wrap}
+.cv-job-role{font-family:var(--font-display);font-weight:600;color:var(--primary);font-size:15.5px}
+.cv-job-date{font-family:var(--font-mono);font-size:11.5px;color:var(--muted);white-space:nowrap}
+.cv-job-org{font-size:13px;color:var(--accent);font-weight:500;margin-bottom:8px}
+.cv-job ul{margin:6px 0 0;padding-left:18px;font-size:13.5px;line-height:1.55}
+.cv-job li{margin-bottom:5px;color:var(--body)}
+.cv-job li::marker{color:var(--accent)}
+
+.cv-twocol{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+@media(max-width:680px){.cv-twocol{grid-template-columns:1fr}}
+.cv-list{list-style:none;padding:0;margin:0;font-size:13px;line-height:1.7}
+.cv-list li{padding-left:14px;position:relative}
+.cv-list li::before{content:"";position:absolute;left:0;top:11px;width:6px;height:1px;background:var(--accent)}
+
+.cv-apps{display:grid;grid-template-columns:repeat(2,1fr);gap:8px 20px;font-size:13px}
+@media(max-width:680px){.cv-apps{grid-template-columns:1fr}}
+.cv-apps .app{padding:7px 0;border-bottom:1px dashed var(--border)}
+.cv-apps .app:last-child,.cv-apps .app:nth-last-child(2){border-bottom:0}
+.cv-apps .app strong{font-family:var(--font-display);font-weight:600;color:var(--primary)}
+.cv-apps .app .stk{font-family:var(--font-mono);font-size:10.5px;color:var(--muted);display:block;margin-top:2px}
+
+.cv-actions{margin-top:24px;display:flex;gap:10px;flex-wrap:wrap}
+.cv-btn{background:var(--primary);color:#fff;font-family:var(--font-display);font-weight:600;font-size:12.5px;letter-spacing:0.06em;text-transform:uppercase;padding:11px 18px;border:0;border-radius:8px;cursor:pointer;transition:background 0.15s ease}
+.cv-btn:hover{background:var(--accent)}
+.cv-btn.outline{background:transparent;color:var(--primary);border:1.5px solid var(--primary)}
+.cv-btn.outline:hover{background:var(--primary);color:#fff}
+
+/* print: only CV, full-bleed, A4 */
+@media print {
+  body.printing-cv > *:not(#cv){display:none !important}
+  body.printing-cv nav.top, body.printing-cv footer.bottom{display:none !important}
+  body.printing-cv #cv{padding:0 !important;max-width:none !important}
+  body.printing-cv .cv-wrap{box-shadow:none;border:0;border-radius:0;padding:24px 28px}
+  body.printing-cv .cv-actions{display:none}
+  body.printing-cv .cv-job{break-inside:avoid;page-break-inside:avoid}
+  @page {size: A4; margin: 14mm}
+}
+
+/* ===== modal ===== */
+.modal-backdrop{position:fixed;inset:0;background:rgba(26,31,46,0.55);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;z-index:100;padding:24px;opacity:0;transition:opacity 0.18s ease}
+.modal-backdrop.open{display:flex;opacity:1}
+.modal{background:var(--bg);border-radius:16px;max-width:680px;width:100%;max-height:88vh;overflow-y:auto;box-shadow:0 24px 64px rgba(0,0,0,0.25);transform:translateY(8px);transition:transform 0.18s ease}
+.modal-backdrop.open .modal{transform:translateY(0)}
+.modal-head{padding:28px 32px 16px;border-bottom:1px solid var(--border);position:relative}
+.modal-head .eyebrow{margin-bottom:4px}
+.modal-head h3{font-size:24px;color:var(--primary);padding-right:40px}
+.modal-close{position:absolute;top:20px;right:20px;background:transparent;border:0;cursor:pointer;color:var(--muted);font-size:22px;line-height:1;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background 0.15s ease,color 0.15s ease}
+.modal-close:hover{background:var(--border);color:var(--primary)}
+.modal-body{padding:24px 32px}
+.modal-body p{font-size:15px;line-height:1.65;color:var(--body)}
+.modal-meta{padding:20px 32px;background:var(--surface);border-top:1px solid var(--border);border-bottom-left-radius:16px;border-bottom-right-radius:16px}
+.modal-meta dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:8px 16px;font-size:13px}
+.modal-meta dt{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);font-weight:600;align-self:center}
+.modal-meta dd{margin:0;font-family:var(--font-mono);font-size:12px;color:var(--body)}
+body.modal-open{overflow:hidden}
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="inner">
+    <div class="brand"><span class="dot"></span>Milos Sirotanovic</div>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#cv"><strong>CV</strong></a></li>
+      <li><a href="#featured">Meeting Assistant</a></li>
+      <li><a href="#ecosystem">Ecosystem</a></li>
+      <li><a href="#tools">Tools</a></li>
+      <li><a href="#toolkit">Toolkit</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header class="hero">
+  <div class="inner">
+    <div class="eyebrow" style="color:var(--accent)">Portfolio · 2026</div>
+    <h1>Milos<br/>Sirotanovic<span>.</span></h1>
+    <div class="role">AI-augmented Customer Success Leader · 13+ years</div>
+    <div class="accent-bar"></div>
+    <div class="tagline">Builds the internal tools customer success teams actually use.</div>
+    <div class="meta">
+      <span>Belgrade, Serbia</span>
+      <span>JAGGAER · TehnoLab CMV</span>
+      <span>Open to senior CS / AI-CS leadership</span>
+    </div>
+  </div>
+</header>
+
+<!-- About -->
+<section id="about" class="block">
+  <div class="eyebrow">About</div>
+  <h2>I build the tools I run my team with.</h2>
+  <hr class="rule"/>
+  <div class="two-col">
+    <div>
+      <p class="bio-lead">I'm a Manager of Customer Success at JAGGAER with 13+ years of experience across customer success, operations, and AI implementation.</p>
+      <p>What sets my work apart is that I don't just manage the function — I build the tools that change how it operates. Microsoft Power Apps, Power Automate, and Copilot Studio assistants designed for the workflows I actually run every day. I also established JAGGAER's Belgrade Center of Excellence and consult on ISO 17020 quality management on the side.</p>
+      <p class="muted" style="font-size:13.5px;margin-top:18px;">Previously at HubSpot I managed Zendesk and all AI implementations — guided and AI chatbot rollouts, support flow automation, and reporting automation.</p>
+    </div>
+    <aside class="facts">
+      <h4>Quick facts</h4>
+      <ul id="facts-list"></ul>
+    </aside>
+  </div>
+</section>
+
+<!-- CV (merged from both Word docs + supplemented with portfolio toolkit) -->
+<section id="cv" class="block">
+  <div class="eyebrow">Curriculum Vitae</div>
+  <h2>Full CV</h2>
+  <hr class="rule"/>
+  <div class="cv-wrap">
+
+    <div class="cv-head">
+      <div>
+        <div class="name">Miloš Sirotanović</div>
+        <div class="title">Customer Success Leader · AI &amp; Automation · CS Operations</div>
+        <div class="contact">
+          <span>Belgrade, Serbia</span>
+          <span>·</span>
+          <a href="mailto:milos.sirotanovic@outlook.com">milos.sirotanovic@outlook.com</a>
+          <span>·</span>
+          <a href="https://www.linkedin.com/in/milos-sirotanovic" target="_blank" rel="noopener">linkedin.com/in/milos-sirotanovic</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <h3>Professional Summary</h3>
+      <p>Customer Success leader with <strong>13+ years</strong> scaling global support, sales, and operations teams — and a rare hands-on builder of AI productivity tools. Currently runs JAGGAER's Belgrade Center of Excellence while designing AI assistants in Microsoft Power Apps, Power Automate, and Copilot Studio that cut CSM manual work ~30%. Previously led 70+ at Happiest Baby, lifting retention 12%, cutting escalations 28%, and reducing support costs 25% through Zendesk and AI automation. Certified Scrum Master, ISO 17020, and CSCMP-certified in procurement.</p>
+    </div>
+
+    <div class="cv-section">
+      <h3>Core Skills</h3>
+      <div class="cv-skill-row"><div class="lbl">Customer Success &amp; Operations</div><div class="val">Customer Success · Service Management · Onboarding · Retention · NRR · CSAT · Engagement · Customer Support · Operations Administration · KPI Reporting · Strategic Planning · Workload Prioritization</div></div>
+      <div class="cv-skill-row"><div class="lbl">AI &amp; Automation</div><div class="val">Artificial Intelligence · AI Productivity · Microsoft Power Platform · Power Apps · Power Automate · Microsoft Copilot · Copilot Studio · Chatbot Development · Prompt Engineering · Process &amp; Workflow Automation</div></div>
+      <div class="cv-skill-row"><div class="lbl">Project &amp; Agile</div><div class="val">Project Management · Agile · Scrum (CSM) · Risk Management · Stakeholder Management · Budget Development · Jira · Confluence · Trello</div></div>
+      <div class="cv-skill-row"><div class="lbl">Leadership &amp; Tools</div><div class="val">Team Leadership · People Management · Communication · Negotiation · Data Analysis · Tableau · Power BI · Microsoft 365 · Salesforce · Zendesk · HubSpot</div></div>
+      <div class="cv-skill-row"><div class="lbl">Quality &amp; Compliance</div><div class="val">ISO 17020 · Quality Assurance · Regulatory Compliance (US &amp; Australia) · Product Safety Documentation (FDA-reviewed) · Customer Communication Compliance · CAPA · Root Cause Analysis · Procurement (CSCMP) · Supply Chain Management</div></div>
+    </div>
+
+    <div class="cv-section">
+      <h3>Experience</h3>
+
+      <div class="cv-job">
+        <div class="cv-job-head"><div class="cv-job-role">Manager, Customer Success (Serbia)</div><div class="cv-job-date">May 2025 — Present</div></div>
+        <div class="cv-job-org">JAGGAER · Belgrade, Serbia · Hybrid</div>
+        <ul>
+          <li>Lead and develop the regional Customer Success team (CSMs and CSAs), establishing the Belgrade Center of Excellence across DCSM (digital/reporting), CSM (engagement), and CSA (support) functions.</li>
+          <li>Built CSM productivity tools in Microsoft Power Apps, Power Automate, and Copilot Studio — including a <strong>Meeting Assistant</strong> that automates pre/post-meeting work (~30% manual time saved) and a <strong>Release Assistant</strong> chatbot that cuts release-note research time (~20% per cycle).</li>
+          <li>Created a <strong>KPI Chatbot</strong> that analyzes team performance data and surfaces adoption-improvement opportunities, supporting data-driven CS decisions.</li>
+          <li>Support retention efforts through proactive, data-informed engagement and customer feedback loops feeding into team strategy.</li>
+          <li>Drive the rollout of AI tooling and automation to balance workloads and scale CS operations without proportional headcount increase.</li>
+        </ul>
+      </div>
+
+      <div class="cv-job">
+        <div class="cv-job-head"><div class="cv-job-role">ISO 17020 Quality Management Consultant</div><div class="cv-job-date">Oct 2017 — Present</div></div>
+        <div class="cv-job-org">TehnoLab CMV Ltd. · Freelance · Belgrade, Serbia · Hybrid</div>
+        <ul>
+          <li>Ongoing ISO 17020 quality management support — monthly retainer plus on-demand work — maintaining the company's accredited inspection and testing system.</li>
+          <li>Trained personnel and led certification cycles for: Accreditation Body of Serbia (ATS) accreditation, Road Traffic Safety Agency (ABS) authorization for vehicle inspection and testing, and homologation authorization for vehicle type approval.</li>
+          <li>Maintained and updated Standard Operating Procedures (SOPs), internal audit documentation, and CAPA records in line with evolving regulatory requirements.</li>
+          <li>Conduct internal audits, root cause analysis, and corrective/preventive action reviews to ensure continuous compliance and audit readiness.</li>
+        </ul>
+      </div>
+
+      <div class="cv-job">
+        <div class="cv-job-head"><div class="cv-job-role">Head of Customer Success &amp; Operations</div><div class="cv-job-date">Mar 2022 — May 2025</div></div>
+        <div class="cv-job-org">Happiest Baby (the maker of SNOO)</div>
+        <ul>
+          <li>Managed a global team of <strong>70+</strong> employees across Support, Sales, Operations, and Technical functions; remote and distributed across Serbia and the USA — owned scheduling and shift planning across time zones, onboarding, performance management, team development, and vendor/BPO coordination.</li>
+          <li>Increased customer retention by <strong>12%</strong> and improved NRR through data-driven engagement strategies and customer success frameworks; reduced escalations by <strong>28%</strong> while improving CSAT and NPS.</li>
+          <li>Spearheaded Zendesk and AI-driven automation, optimizing ticket resolution time and reducing costs by <strong>25%</strong>; implemented predictive analytics for churn detection.</li>
+          <li>Owned Zendesk CRM operations end-to-end — triggers, routing, SLA rules, macros, views, roles, tags, taxonomy, and escalation workflows — and ran a quality system across tone of voice, SOPs, knowledge base structure, templates, QA checks, and agent enablement.</li>
+          <li>Built SNOO product safety procedures and customer-facing safety documentation; portions <strong>reviewed by the FDA</strong>. Led policy and compliance work for US and Australian requirements covering product safety, customer communication, and operational procedures.</li>
+          <li>Designed and rolled out a chargeback procedure across Stripe and Shopify so support agents had a consistent process for billing disputes, refunds, and payment-related escalations — reducing handling time and inconsistent outcomes.</li>
+          <li>Developed Voice of the Customer (VoC) programs; used support data to identify top contact drivers, escalation causes, and refund/chargeback drivers; turned insights into product feedback with Product and Engineering.</li>
+          <li>Standardized SOPs, workforce management, and escalation processes — improving scalability and SLA adherence; partnered with Sales, Marketing, and Product to drive upsells, cross-sells, and long-term customer value.</li>
+        </ul>
+      </div>
+
+      <div class="cv-job">
+        <div class="cv-job-head"><div class="cv-job-role">Agile Project Manager · CRM &amp; Process Automation</div><div class="cv-job-date">Dec 2020 — Mar 2022</div></div>
+        <div class="cv-job-org">Happiest Baby (the maker of SNOO)</div>
+        <ul>
+          <li>Led global Agile project teams across the USA and Serbia, ensuring seamless execution and collaboration.</li>
+          <li>Spearheaded CRM and workflow automation, improving efficiency and reducing manual workload across departments.</li>
+          <li>Implemented Zendesk, AI-driven chatbots, and knowledge management systems, optimizing support operations.</li>
+          <li>Utilized Jira, Confluence, and Trello, streamlining project execution and team coordination.</li>
+          <li>Implemented AI chatbot solutions, reducing third-party staffing needs by 25%.</li>
+        </ul>
+      </div>
+
+      <div class="cv-job">
+        <div class="cv-job-head"><div class="cv-job-role">Customer Care Department Supervisor</div><div class="cv-job-date">Jun 2019 — Dec 2020</div></div>
+        <div class="cv-job-org">Happiest Baby (the maker of SNOO)</div>
+        <ul>
+          <li>Led a 40-agent support team, increasing CSAT by 15% through workflow optimization.</li>
+          <li>Developed training programs, reducing resolution time by 25% and improving agent proficiency.</li>
+          <li>Built dashboards and KPI reporting for support performance, service quality, SLA tracking, productivity, and team KPIs using Excel/Sheets, Power BI, and Tableau.</li>
+          <li>Led aftersales initiatives, ensuring seamless follow-ups and stronger customer lifetime value.</li>
+        </ul>
+      </div>
+
+      <div class="cv-job">
+        <div class="cv-job-head"><div class="cv-job-role">Technical Specialist</div><div class="cv-job-date">Oct 2017 — Jun 2019</div></div>
+        <div class="cv-job-org">NCR Corporation</div>
+        <ul>
+          <li>Provided proactive solutions for network stability and guidance to Bentonville HQ clients on connectivity issues.</li>
+          <li>Supported diverse devices and infrastructure including Store controllers, collaborating with specialists to enhance performance.</li>
+          <li>Developed documentation for efficient issue management and process consistency.</li>
+        </ul>
+      </div>
+
+      <div class="cv-job">
+        <div class="cv-job-head"><div class="cv-job-role">Quality Assurance Manager</div><div class="cv-job-date">Jul 2015 — Oct 2017</div></div>
+        <div class="cv-job-org">TehnoLab CMV Ltd. (Center for Engines and Vehicles)</div>
+        <ul>
+          <li>Led quality assurance and ISO 17020 system management for an automotive testing center; managed the full certification process and secured accreditation from the Accreditation Body of Serbia (ATS) and Road Traffic Safety Agency (ABS) under the Ministry of Traffic and Infrastructure.</li>
+          <li>Authored comprehensive Standard Operating Procedures (SOPs) and quality documentation; established dashboards and reporting frameworks for performance monitoring and continuous improvement.</li>
+          <li>Implemented robust root cause analysis methodologies and corrective/preventive action (CAPA) processes.</li>
+          <li>Conducted ISO 17020 training across all organizational levels, embedding quality practices into daily operations.</li>
+        </ul>
+      </div>
+
+      <div class="cv-job">
+        <div class="cv-job-head"><div class="cv-job-role">Sales &amp; Operations Leadership Roles (Multiple)</div><div class="cv-job-date">Aug 2006 — Jul 2015</div></div>
+        <div class="cv-job-org">Andromeda d.o.o. — Trading Company</div>
+        <ul>
+          <li>Progressed across three roles: Commercial Administrative Coordinator (2006–2009) → Sales &amp; Business Growth Manager (2010–2013) → Assistant General Manager (2013–2015).</li>
+          <li>Served as second-in-command to the General Manager at a trading company representing international suppliers (Ashland Aqualon — USA, BCK Burghausen — Germany); managed daily operations across sales, logistics, and administration.</li>
+          <li>Increased sales revenue by 20% in six months through targeted sales enablement; expanded international partnerships and led junior sales teams to exceed targets.</li>
+          <li>Implemented CRM-driven sales forecasting; negotiated key B2B contracts securing long-term partnerships with international principals.</li>
+          <li>Oversaw import/export logistics and managed financial transactions; provided operational and financial reports for strategic decision-making.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Apps & Tools Built — supplemented from portfolio -->
+    <div class="cv-section">
+      <h3>AI Tools &amp; Apps Built</h3>
+      <p style="font-size:13px;color:var(--muted);margin-bottom:12px;">18 tools shipped across CS Team, COE Serbia, internal process, builder utilities, and personal automation. Full detail in the <a href="#tools">Tools</a> section.</p>
+      <div class="cv-apps">
+        <div class="app"><strong>Meeting Assistant</strong> · the workbench<span class="stk">Power Apps · Power Automate · Copilot Studio · MS Graph</span></div>
+        <div class="app"><strong>JAGGAER 26.1 Release Assistant</strong><span class="stk">Copilot Studio · grounded release notes</span></div>
+        <div class="app"><strong>JI Product Search Assistant</strong><span class="stk">Copilot Studio · JAGGAER Indirect handbooks</span></div>
+        <div class="app"><strong>Talking Points Generator</strong><span class="stk">Copilot Studio · structured HTML output</span></div>
+        <div class="app"><strong>Success Story Search</strong><span class="stk">Copilot Studio · SharePoint + public KB</span></div>
+        <div class="app"><strong>KPI Chatbot</strong><span class="stk">Copilot Studio · customer KPI lookup</span></div>
+        <div class="app"><strong>Email Assistant</strong><span class="stk">Custom GPT · CS email drafting</span></div>
+        <div class="app"><strong>Meeting Summary From Transcript</strong><span class="stk">Custom GPT · structured CS summaries</span></div>
+        <div class="app"><strong>Prompt Builder</strong><span class="stk">Custom GPT · CSM prompt library</span></div>
+        <div class="app"><strong>Supplier Survey Insight Generator</strong><span class="stk">Custom GPT · EBR prep</span></div>
+        <div class="app"><strong>CS Thread Analyst &amp; Escalation Brief</strong><span class="stk">Custom GPT · evidence-based briefs</span></div>
+        <div class="app"><strong>HubSpot Search</strong><span class="stk">Copilot Studio · Teams-accessible KB</span></div>
+        <div class="app"><strong>HR Assistant</strong><span class="stk">Copilot Studio · SharePoint HR KB</span></div>
+        <div class="app"><strong>New Vendor Process</strong><span class="stk">Copilot Studio · vendor onboarding triage</span></div>
+        <div class="app"><strong>Codex Prompt Builder</strong><span class="stk">Custom GPT · structured app prompts</span></div>
+        <div class="app"><strong>GPT Excel Assistant</strong><span class="stk">Custom GPT · modern Excel</span></div>
+        <div class="app"><strong>Daily 8 AM Teams Summary</strong><span class="stk">Power Automate · MS Graph · Teams · Jira</span></div>
+        <div class="app"><strong>Job Application GPT</strong><span class="stk">Custom GPT · LinkedIn knowledge file</span></div>
+      </div>
+    </div>
+
+    <!-- Toolkit — also supplemented from portfolio -->
+    <div class="cv-section">
+      <h3>Daily Toolkit</h3>
+      <div class="cv-twocol">
+        <div>
+          <div class="cv-skill-row"><div class="lbl">AI assistants</div><div class="val">Claude · Claude Code · ChatGPT · Microsoft 365 Copilot · Perplexity</div></div>
+          <div class="cv-skill-row"><div class="lbl">Editors &amp; code</div><div class="val">VS Code · Windsurf · GitHub Copilot · GitHub</div></div>
+        </div>
+        <div>
+          <div class="cv-skill-row"><div class="lbl">Builder studios</div><div class="val">Copilot Studio · Power Apps Studio · Power Automate · Microsoft Graph Explorer · Matik</div></div>
+          <div class="cv-skill-row"><div class="lbl">Microsoft 365</div><div class="val">Outlook · Teams · SharePoint · Excel · PowerPoint · Word</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <h3>Certifications &amp; Education</h3>
+      <div class="cv-twocol">
+        <ul class="cv-list">
+          <li>Certified Scrum Master (CSM) — Scrum Alliance</li>
+          <li>ISO/IEC 17020 Sys. Mng. — Institute for Standardization of Serbia</li>
+          <li>CSCMP Procurement Professional Certificate — CSCMP</li>
+          <li>Atlassian Agile PM Professional Certificate — Atlassian</li>
+          <li>Zendesk Customer Service Professional Cert. — Zendesk</li>
+        </ul>
+        <ul class="cv-list">
+          <li>Negotiation Professional Certificate — American Negotiation Inst.</li>
+          <li>Risk Management Certification — IBI Institute</li>
+          <li>Advanced Project Management — Consult ADQM</li>
+          <li>Customer Experience Management — Clear Communication Center</li>
+          <li><strong>Bachelor of Economics</strong> — Belgrade Business Academy · 2006–2010</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <h3>Languages</h3>
+      <p>Serbian (Native) · English (Bilingual)</p>
+    </div>
+
+    <div class="cv-actions">
+      <button class="cv-btn" id="cv-print">Print / Save as PDF</button>
+      <a class="cv-btn outline" href="#contact">Get in touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- Featured -->
+<section id="featured" class="block">
+  <div class="eyebrow">Featured Project · 2024–2026</div>
+  <h2>Meeting Assistant</h2>
+  <hr class="rule"/>
+  <div class="featured-card">
+    <p class="one-liner">A local-first Power Apps workbench that consolidates the entire customer meeting lifecycle — prep, execution, follow-up — into a single workspace with AI assistants grounded in JAGGAER's product knowledge.</p>
+    <div class="ps-grid">
+      <div class="ps-block">
+        <div class="label">The problem</div>
+        <p>Customer Success Managers at JAGGAER lose hours each week jumping between Outlook, Teams, SharePoint, Jira, and four different product knowledge bases just to prepare for, run, and follow up on a single customer meeting. Context-switching reduces meeting quality and delays follow-up — both of which directly impact retention.</p>
+      </div>
+      <div class="ps-block">
+        <div class="label">The solution</div>
+        <p>A Power Apps workbench that runs locally on each CSM's machine, pulls from their own connected Microsoft tools, and uses purpose-built AI assistants — one per JAGGAER product line — to generate talking points, draft notes from transcripts, and schedule follow-ups without leaving the app.</p>
+      </div>
+    </div>
+    <div class="stack-strip">Power Apps · Power Automate · Copilot Studio · Microsoft Graph · Outlook · Teams · SharePoint · Jira</div>
+    <div class="choices">
+      <div class="choice"><h4>Local-first</h4><p>App data stays on each CSM's machine. Only meeting notes export to SharePoint, and only on explicit user action. No centralized telemetry.</p></div>
+      <div class="choice"><h4>Bot-per-product</h4><p>Separate Copilot Studio bots for ASO, JA, JD, JI. Narrow scope per bot dramatically reduces hallucination vs. one general bot.</p></div>
+      <div class="choice"><h4>User-permissioned</h4><p>Every connector runs under the user's own Microsoft credentials. The app never holds elevated permissions or scrapes data the user can't already see.</p></div>
+    </div>
+  </div>
+
+  <h3 style="margin-top:48px;margin-bottom:6px">Why this isn't just another meeting tool</h3>
+  <hr class="rule"/>
+  <div class="diff-grid" id="diff-grid"></div>
+</section>
+
+<!-- Ecosystem -->
+<section id="ecosystem" class="block">
+  <div class="eyebrow">Tool Ecosystem · 2023–2026</div>
+  <h2>18 tools, one operating system for Customer Success.</h2>
+  <hr class="rule"/>
+  <p style="font-size:15.5px;max-width:720px;">Meeting Assistant is the deep dive. Around it sits an ecosystem of 17 more AI tools across the CS team, COE Serbia, internal process, builder utilities, and personal automation — most of them grounded in narrow knowledge bases rather than general LLM outputs.</p>
+  <div class="eco-table">
+    <table>
+      <thead><tr><th>Tool</th><th>Audience</th><th>Status</th><th>Stack</th></tr></thead>
+      <tbody id="eco-rows"></tbody>
+    </table>
+  </div>
+</section>
+
+<!-- Tools (clickable) -->
+<section id="tools" class="block">
+  <div class="eyebrow">Built tools — click any card for details</div>
+  <h2>The customer success workbench</h2>
+  <hr class="rule"/>
+
+  <div class="section-sub">CS Team · 10 tools</div>
+  <div class="cards-grid" data-group="cs"></div>
+
+  <div class="section-sub">COE Serbia · 2 tools</div>
+  <div class="cards-grid" data-group="coe"></div>
+
+  <div class="section-sub">Internal Process · 1 tool</div>
+  <div class="cards-grid" data-group="internal"></div>
+
+  <div class="section-sub">Builder Tools · 2 tools</div>
+  <div class="cards-grid" data-group="builder"></div>
+
+  <div class="section-sub">Personal Automations · 2 tools</div>
+  <div class="cards-grid" data-group="personal"></div>
+</section>
+
+<!-- Beyond -->
+<section id="beyond" class="block">
+  <div class="eyebrow">Operational Work</div>
+  <h2>What I do when I'm not building.</h2>
+  <hr class="rule"/>
+  <div class="beyond-grid">
+    <div class="beyond-card"><span class="tag">JAGGAER · Belgrade</span><h3>Belgrade Center of Excellence</h3><p>Established and scaled JAGGAER's Customer Success Center of Excellence in Belgrade from the ground up. Hiring, onboarding, process design, KPI definition, and the AI tooling rollout documented in this portfolio. Demonstrates that the tools above weren't built in isolation — they were built inside a team I was simultaneously growing.</p></div>
+    <div class="beyond-card"><span class="tag">Freelance</span><h3>ISO 17020 · TehnoLab CMV</h3><p>Ongoing freelance engagement implementing ISO 17020 quality management systems for a Belgrade inspection laboratory. Document control, process audits, corrective action workflows. Shows breadth beyond software/AI — operational rigor in a regulated domain.</p></div>
+  </div>
+  <div class="beyond-wide"><span class="tag">Background</span><h3>Earlier · HubSpot</h3><p>Managed Zendesk and all AI implementations — guided and AI chatbot rollouts, support flow automation, and reporting automation. The current builder-first approach started here.</p></div>
+</section>
+
+<!-- Toolkit -->
+<section id="toolkit" class="block">
+  <div class="eyebrow">Daily Toolkit</div>
+  <h2>What I work in</h2>
+  <hr class="rule"/>
+  <p style="font-size:15.5px;max-width:720px;margin-bottom:24px;">The AI assistants, editors, and builder studios I touch on a weekly basis.</p>
+  <div class="skills-grid" id="toolkit-grid"></div>
+</section>
+
+<!-- Skills -->
+<section id="skills" class="block">
+  <div class="eyebrow">How I Work</div>
+  <h2>Approach</h2>
+  <hr class="rule"/>
+  <div class="skills-grid" id="skills-grid"></div>
+  <div class="principles" id="principles"></div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="block">
+  <div class="contact-wrap">
+    <div class="eyebrow" style="color:var(--accent)">Get in touch</div>
+    <h2>Let's talk.</h2>
+    <p class="lead">Builds the internal tools customer success teams actually use.</p>
+    <ul class="contact-list">
+      <li><span class="lbl">Email</span><a class="val" href="mailto:milos.sirotanovic@outlook.com">milos.sirotanovic@outlook.com</a></li>
+      <li><span class="lbl">LinkedIn</span><a class="val" href="https://www.linkedin.com/in/milos-sirotanovic" target="_blank" rel="noopener">linkedin.com/in/milos-sirotanovic</a></li>
+      <li><span class="lbl">Based in</span><span class="val">Belgrade, Serbia</span></li>
+    </ul>
+    <div class="avail"><span class="tag">Availability</span>Currently full-time at JAGGAER · open to senior CS or AI-CS leadership conversations · freelance bandwidth limited</div>
+  </div>
+</section>
+
+<footer class="bottom">© 2026 Milos Sirotanovic · Portfolio built as static HTML — print version available as <code>portfolio.pdf</code></footer>
+
+<!-- Modal -->
+<div class="modal-backdrop" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal">
+    <div class="modal-head">
+      <div class="eyebrow" id="modal-eyebrow"></div>
+      <h3 id="modal-title"></h3>
+      <button class="modal-close" id="modal-close" aria-label="Close">×</button>
+    </div>
+    <div class="modal-body"><p id="modal-body"></p></div>
+    <div class="modal-meta">
+      <dl>
+        <dt>Status</dt><dd id="modal-status"></dd>
+        <dt>Audience</dt><dd id="modal-audience"></dd>
+        <dt>Stack</dt><dd id="modal-stack"></dd>
+        <dt>Impact</dt><dd id="modal-impact"></dd>
+      </dl>
+    </div>
+  </div>
+</div>
+
+<script>
+const FACTS = [
+  ["13+ years","Customer Success, Operations, AI"],
+  ["18 AI tools shipped","Power Apps, Copilot Studio, Custom GPTs"],
+  ["4 audience tiers served","CS Team, COE Serbia, Small group, Individual"],
+  ["2–10 hrs/week saved","per user across the toolset"],
+  ["1 Center of Excellence","established in Belgrade"],
+  ["2 languages","Serbian (native), English (fluent)"],
+  ["Currently","JAGGAER (full-time) + TehnoLab CMV (freelance)"]
+];
+
+const DIFFERENTIATORS = [
+  ["Built by a CSM, not a developer.","The workflow logic comes from running customer meetings every day for years. Every screen exists because something specific was slowing me down."],
+  ["Bot-per-product structure.","Most \"AI assistants\" use one general LLM and hope for the best. This one routes each question to a narrow, knowledge-grounded bot — ASO, JA, JD, JI — so answers stay accurate inside each product's domain."],
+  ["Local-first, user-permissioned.","No centralized data store. No scraping. The app uses the user's own Microsoft credentials and keeps everything local unless the user explicitly exports it."],
+  ["Compounding knowledge base.","Every exported meeting note lands in SharePoint and becomes future bot context. The system gets sharper the more it's used."]
+];
+
+const ECO = [
+  ["Meeting Assistant","CS Team / individual users","Released","Power Apps · Power Automate · Copilot Studio"],
+  ["Prompt Builder","CS Team","Released","Custom GPT"],
+  ["Meeting Summary From Transcript","CS Team","Released","Custom GPT"],
+  ["Email Assistant","CS Team","Released","Custom GPT"],
+  ["JAGGAER 26.1 Release Assistant","CS Team","Released","Copilot Studio"],
+  ["JAGGAER JI Product Search Assistant","CS Team","Released","Copilot Studio"],
+  ["Talking Points Generator","CS Team","Released","Copilot Studio"],
+  ["Success Story Search","CS Team","Released","Copilot Studio"],
+  ["Supplier Survey Insight Generator","CS Team","Released","Custom GPT"],
+  ["CS Thread Analyst & Escalation Brief","CS Team","Released","Custom GPT"],
+  ["KPI Chatbot","CS Team","Released","Copilot Studio"],
+  ["HubSpot Search","COE Serbia","Released","Copilot Studio"],
+  ["HR Assistant","COE Serbia","Released","Copilot Studio"],
+  ["New Vendor process","Small group","Released","Copilot Studio"],
+  ["Codex Prompt Builder","Small group","Released","Custom GPT"],
+  ["GPT Excel Assistant","Small group","Released","Custom GPT"],
+  ["Daily 8 AM Teams Summary","Personal (team-adopted)","Released","Power Automate · MS Graph · Teams"],
+  ["Job Application GPT","Personal","Released","Custom GPT"]
+];
+
+const TOOLS = {
+  cs: [
+    {title:"Prompt Builder",eyebrow:"CS Team · Custom GPT",body:"Copy-paste-ready prompts for the scenarios CSMs hit weekly: QBR prep, renewal risk emails, escalation summaries, churn narratives, expansion write-ups. Generates a fast first draft with an editable Assumptions block instead of grilling the user with clarification questions.",status:"Released",audience:"CS Team",stack:"Custom GPT",impact:"~2–3 hrs/week saved"},
+    {title:"Meeting Summary From Transcript",eyebrow:"CS Team · Custom GPT",body:"Converts raw meeting transcripts or notes into structured CS summaries using the team's internal template. Preserves exact names, dates, and metrics — never invents owners or action items.",status:"Released",audience:"CS Team",stack:"Custom GPT",impact:"~3–5 hrs/week saved"},
+    {title:"Email Assistant",eyebrow:"CS Team · Custom GPT",body:"Drafts customer-facing and internal CS emails from notes, prior threads, or short instructions. Uses internal templates, preserves exact facts and commitments, improves tone — never invents decisions or owners.",status:"Released",audience:"CS Team",stack:"Custom GPT",impact:"~3–4 hrs/week saved"},
+    {title:"JAGGAER 26.1 Release Assistant",eyebrow:"CS Team · Copilot Studio · reused in Meeting Assistant",body:"Release-note assistant locked to a deterministic Product → Core mapping (ASO, JA, JD, JI). Retrieves documented 26.1 changes from official release notes; cites document and page number for every response. No speculation, no other versions.",status:"Released",audience:"CS Team",stack:"Copilot Studio",impact:"~2–3 hrs/week · up to ~80% accuracy on documented release questions"},
+    {title:"JAGGAER JI Product Search Assistant",eyebrow:"CS Team · Copilot Studio · reused in Meeting Assistant",body:"Senior-CSM-grade assistant that retrieves answers from official JAGGAER Indirect handbooks. Separates facts from assumptions from recommendations. Cites handbook + page number. Designed to refuse inventing product capabilities or policy claims.",status:"Released",audience:"CS Team",stack:"Copilot Studio",impact:"~2–3 hrs/week · up to ~80% accuracy on handbook-grounded questions"},
+    {title:"Talking Points Generator",eyebrow:"CS Team · Copilot Studio · reused in Meeting Assistant",body:"Converts unstructured meeting prep notes into clean HTML talking points. Expands shorthand into customer-facing directives, detects risks (champion changes, low adoption), outputs strict HTML sections — never fabricating data.",status:"Released",audience:"CS Team",stack:"Copilot Studio",impact:"~2–3 hrs/week saved"},
+    {title:"Success Story Search",eyebrow:"CS Team · Copilot Studio · reused in Meeting Assistant",body:"Searches internal SharePoint success-story documents and public JAGGAER website stories. Matches by product, industry, challenge, region, or use case. Returns up to three stories with summary + relevance + source metadata.",status:"Released",audience:"CS Team",stack:"Copilot Studio",impact:"~1–2 hrs/week · up to ~75% better hit rate on relevant stories"},
+    {title:"Supplier Survey Insight Generator",eyebrow:"CS Team · Custom GPT",body:"Converts CSM supplier survey data into executive-ready insights for Executive Business Review prep. Three structured outputs: insight summary, missing-data report, follow-up opportunities — grounded only in user data.",status:"Released",audience:"CS Team",stack:"Custom GPT",impact:"~3–4 hrs saved per EBR cycle"},
+    {title:"CS Thread Analyst & Escalation Brief",eyebrow:"CS Team · Custom GPT",body:"Converts messy support threads into evidence-based escalation briefs. Preserves exact wording, normalizes dates, flags missing attachments. Outputs structured sections plus ready-to-use escalation/customer text blocks.",status:"Released",audience:"CS Team",stack:"Custom GPT",impact:"~2–3 hrs saved per escalation"},
+    {title:"KPI Chatbot",eyebrow:"CS Team · Copilot Studio",body:"Surfaces customer KPI definitions, calculation methods, and current customer-specific values from connected data sources. Answers KPI questions without making CSMs or customers dig through dashboards.",status:"Released",audience:"CS Team",stack:"Copilot Studio",impact:"~2–3 hrs/week saved"}
+  ],
+  coe: [
+    {title:"HubSpot Search",eyebrow:"COE Serbia · Copilot Studio",body:"Teams-accessible HubSpot knowledge bot for users without HubSpot licenses. Answers from indexed HubSpot content with continuous KB sync, language matching, and trigger commands. Built to unblock COE Serbia where license seats were a constraint.",status:"Released",audience:"COE Serbia",stack:"Copilot Studio",impact:"~2–3 hrs/week · up to ~70% better information access for unlicensed users"},
+    {title:"HR Assistant",eyebrow:"COE Serbia · Copilot Studio",body:"Belgrade office HR assistant. Answers employee questions on holidays, leave, timesheets, travel, allowances, and platform usage using only the SharePoint HR Knowledge Base. Cites source documents; refuses sensitive HR topics by redirecting to HR.",status:"Released",audience:"COE Serbia",stack:"Copilot Studio",impact:"~1–2 hrs/week HR capacity reclaimed · up to ~80% of routine queries auto-answered"}
+  ],
+  internal: [
+    {title:"New Vendor Process",eyebrow:"Small group · Copilot Studio",body:"Internal JAGGAER/JMP triage assistant for vendor onboarding, NDAs, DPA review, purchase requisitions, contract requests, and signature routing for MSAs/SOWs. Pulls from internal process knowledge bases.",status:"Released",audience:"Small group",stack:"Copilot Studio",impact:"~1–2 hrs saved per vendor flow"}
+  ],
+  builder: [
+    {title:"Codex Prompt Builder",eyebrow:"Small group · Custom GPT",body:"Project-manager-style assistant that helps define full app scope and generate structured Codex-ready prompts — not implementation code. Preset modes (CRUD, Dashboard, Report/Deck, Combination); outputs JSON_SPEC + ready-to-paste CODEX_PROMPT_BLOCKS.",status:"Released",audience:"Small group",stack:"Custom GPT",impact:"~4–6 hrs saved per app project"},
+    {title:"GPT Excel Assistant",eyebrow:"Small group · Custom GPT",body:"Excel-only expert for Microsoft Excel on Windows, Mac, and Web. Prioritizes modern Excel features (XLOOKUP, dynamic arrays, LET). Avoids invented ranges, sample outputs, and unnecessary VBA. Concise answers when inputs are explicit.",status:"Released",audience:"Small group",stack:"Custom GPT",impact:"~1–2 hrs/week saved"}
+  ],
+  personal: [
+    {title:"Daily 8 AM Teams Summary",eyebrow:"Personal (team-adopted) · Power Automate",body:"Scheduled Power Automate flow that runs at 8 AM every workday and sends a personalized Teams digest: today's meetings, incoming customer emails, related Jira tickets, open follow-ups. Built as personal automation — organically adopted by teammates who asked for their own copy.",status:"Released",audience:"Personal (team-adopted)",stack:"Power Automate · MS Graph · Teams · Jira",impact:"~2–3 hrs/week saved per user"},
+    {title:"Job Application GPT",eyebrow:"Personal · OpenAI GPTs",body:"Custom ChatGPT configured with a structured LinkedIn knowledge file. Handles CV reviews, drafts cover letters and application messages from target job descriptions, prepares interview talking points, and builds candidate scorecards. Used in own job search; methodology repeatable for anyone running a structured search.",status:"Released",audience:"Personal",stack:"OpenAI GPTs · Knowledge file",impact:"~2–3 hrs saved per application"}
+  ]
+};
+
+// Also expose Meeting Assistant as a clickable card target — append at top of "cs" group as a featured tile
+const FEATURED_TOOL = {title:"Meeting Assistant ★",eyebrow:"Featured · CS Team / individual users · 2024–2026",body:"Local-first Power Apps workbench consolidating the entire customer meeting lifecycle — prep, execution, follow-up — into one workspace with AI assistants grounded in JAGGAER product knowledge. 11 screens, 4 product-specific Copilot Studio bots (ASO, JA, JD, JI), Power Automate flows for talking-point and notes generation, and Microsoft Graph integration with Outlook, Teams, SharePoint and Jira. Composes Release Assistant, JI Search, Talking Points and Success Story Search internally.",status:"Released",audience:"CS Team / individual users",stack:"Power Apps · Power Automate · Copilot Studio · Microsoft Graph",impact:"Replaces 5+ tools per CSM workflow"};
+
+const SKILLS = [
+  ["AI & Automation",["Copilot Studio","Custom GPTs","Prompt engineering","Retrieval grounding","Hallucination control","Multi-bot architecture"]],
+  ["Microsoft Stack",["Power Apps","Power Automate","Microsoft Graph","SharePoint, Teams, Outlook","Dataverse","Power BI"]],
+  ["Customer Success",["Account management","Escalation handling","Value realization","Expansion strategy","Churn reduction","KPI definition"]],
+  ["Process & Quality",["ISO 17020","Process design","Center of Excellence build-out"]],
+  ["Support Platforms",["Zendesk","HubSpot","Jira"]],
+  ["Languages",["Serbian (native)","English (fluent)"]]
+];
+
+const TOOLKIT = [
+  ["AI assistants", [
+    ["Claude", "Anthropic · primary reasoning model"],
+    ["Claude Code", "agentic coding sessions"],
+    ["ChatGPT", "OpenAI · cross-check + custom GPTs"],
+    ["Microsoft 365 Copilot", "in-flow assistance across M365"],
+    ["Perplexity", "research + sourcing"]
+  ]],
+  ["Editors & code", [
+    ["VS Code", "primary editor"],
+    ["Windsurf", "agentic IDE for app building"],
+    ["GitHub Copilot", "inline code suggestions"],
+    ["GitHub", "repos + versioning"]
+  ]],
+  ["Builder studios", [
+    ["Copilot Studio", "all 12+ Copilot bots ship from here"],
+    ["Power Apps Studio", "daily driver · canvas apps + Meeting Assistant"],
+    ["Power Automate", "daily driver · all flows + scheduled jobs"],
+    ["Microsoft Graph Explorer", "connector + permission testing"],
+    ["Matik", "data-driven decks + portfolio builds"]
+  ]],
+  ["Microsoft 365", [
+    ["Outlook", "calendar + customer email"],
+    ["Teams", "meetings + chat surface"],
+    ["SharePoint", "KB + notes export target"],
+    ["Excel", "modelling + KPI work"],
+    ["PowerPoint", "EBR + customer-facing decks"],
+    ["Word", "docs + ISO 17020 controls"]
+  ]]
+];
+
+const PRINCIPLES = [
+  ["Real pain over abstract requirements.","I build tools for workflows I run myself. If I can't describe the friction in one sentence, I don't build for it."],
+  ["Narrow bots, not general ones.","A bot scoped to one product line beats a general assistant for accuracy. Hallucination control is an architectural choice, not a prompt tweak."],
+  ["User-permissioned, local-first.","Tools should run on the user's permissions and keep data local until export is explicit. No centralized data store unless there's a clear reason."],
+  ["Cross-check across models.","I triangulate AI outputs across Claude and ChatGPT before shipping. Single-model outputs are first drafts."],
+  ["Ship to a real user, then iterate.","Power Apps lets me prototype in days. I get the tool into one CSM's hands fast, fix what's broken, then roll wider."]
+];
+
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c]));
+
+// Render facts
+document.getElementById("facts-list").innerHTML = FACTS.map(([k,v])=>
+  `<li><span class="k">${esc(k)}</span><span class="v">${esc(v)}</span></li>`).join("");
+
+// Differentiators
+document.getElementById("diff-grid").innerHTML = DIFFERENTIATORS.map(([t,b],i)=>
+  `<div class="diff"><span class="num">0${i+1}</span><h4>${esc(t)}</h4><p>${esc(b)}</p></div>`).join("");
+
+// Ecosystem table
+document.getElementById("eco-rows").innerHTML = ECO.map(([n,a,s,st])=>
+  `<tr><td><strong>${esc(n)}</strong></td><td>${esc(a)}</td><td><span class="badge">${esc(s)}</span></td><td class="stack">${esc(st)}</td></tr>`).join("");
+
+// Skills
+document.getElementById("skills-grid").innerHTML = SKILLS.map(([label,items])=>
+  `<div class="skill-col"><h4>${esc(label)}</h4><ul>${items.map(i=>`<li>${esc(i)}</li>`).join("")}</ul></div>`).join("");
+
+// Toolkit — name + note per item
+document.getElementById("toolkit-grid").innerHTML = TOOLKIT.map(([label,items])=>
+  `<div class="skill-col">
+     <h4>${esc(label)}</h4>
+     <ul class="tk-list">
+       ${items.map(([n,note])=>`<li><span class="tk-n">${esc(n)}</span><span class="tk-note">${esc(note)}</span></li>`).join("")}
+     </ul>
+   </div>`).join("");
+
+// Principles
+document.getElementById("principles").innerHTML = PRINCIPLES.map(([t,b],i)=>
+  `<div class="principle"><div class="n">${i+1}</div><div><h4>${esc(t)}</h4><p>${esc(b)}</p></div></div>`).join("");
+
+// Tool cards — make Meeting Assistant a prominent first card in cs group
+function cardHTML(t, idx, group){
+  const preview = t.body.length > 200 ? t.body.slice(0,200).trim()+"…" : t.body;
+  return `<button class="tool-card" data-group="${group}" data-idx="${idx}">
+    <h4>${esc(t.title)}</h4>
+    <p class="preview">${esc(preview)}</p>
+    <div class="meta">${esc(t.eyebrow)}<br/><span style="color:var(--accent);font-weight:600;">${esc(t.impact)}</span></div>
+    <div class="open-hint">Open details</div>
+  </button>`;
+}
+
+// Prepend featured to cs
+TOOLS.cs = [FEATURED_TOOL, ...TOOLS.cs];
+
+Object.keys(TOOLS).forEach(group => {
+  const container = document.querySelector(`[data-group="${group}"]`);
+  if (container) container.innerHTML = TOOLS[group].map((t,i)=>cardHTML(t,i,group)).join("");
+});
+
+// Modal
+const modal = document.getElementById("modal");
+const setText = (id,v) => document.getElementById(id).textContent = v;
+
+function openModal(group, idx){
+  const t = TOOLS[group][idx];
+  setText("modal-eyebrow", t.eyebrow);
+  setText("modal-title", t.title);
+  setText("modal-body", t.body);
+  setText("modal-status", t.status);
+  setText("modal-audience", t.audience);
+  setText("modal-stack", t.stack);
+  setText("modal-impact", t.impact);
+  modal.classList.add("open");
+  document.body.classList.add("modal-open");
+}
+function closeModal(){
+  modal.classList.remove("open");
+  document.body.classList.remove("modal-open");
+}
+
+document.querySelectorAll(".tool-card").forEach(c => {
+  c.addEventListener("click", () => openModal(c.dataset.group, +c.dataset.idx));
+});
+document.getElementById("modal-close").addEventListener("click", closeModal);
+modal.addEventListener("click", e => { if (e.target === modal) closeModal(); });
+document.addEventListener("keydown", e => { if (e.key === "Escape") closeModal(); });
+
+// CV print — only the CV prints, full A4 page
+document.getElementById("cv-print").addEventListener("click", () => {
+  document.body.classList.add("printing-cv");
+  setTimeout(() => {
+    window.print();
+    setTimeout(() => document.body.classList.remove("printing-cv"), 200);
+  }, 50);
+});
+
+// smooth-scroll for nav
+document.querySelectorAll('nav.top a[href^="#"]').forEach(a => {
+  a.addEventListener("click", e => {
+    const t = document.querySelector(a.getAttribute("href"));
+    if (t) { e.preventDefault(); t.scrollIntoView({behavior:"smooth", block:"start"}); }
+  });
+});
+</script>
+</body>
+</html>
