@@ -329,12 +329,22 @@ dialog.modal::backdrop{background:rgba(10,12,17,.55);-webkit-backdrop-filter:blu
 .modal-meta dd{margin:0;font-size:14px;color:var(--text)}
 
 /* ============ Capabilities ============ */
-.cap-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:40px;align-items:start}
-.cap{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px}
+.cap-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:40px;align-items:start}
+.cap-col{display:flex;flex-direction:column;gap:14px;min-width:0}
+.cap{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:22px 22px 24px}
 .cap h3{font-size:17px;letter-spacing:-.01em;margin:0 0 4px}
 .cap .hint{font-size:13px;color:var(--muted);margin:0 0 14px}
-.legend{display:flex;flex-wrap:wrap;gap:14px;margin-top:20px;font-size:13px;color:var(--muted);align-items:center}
-.legend .chip{font-size:12px;padding:3px 9px}
+.sk{display:inline-flex;align-items:center;gap:7px;padding:7px 13px;border-radius:999px;font-size:13px;font-weight:500;line-height:1.3;border:1px solid transparent;box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 1px 2px rgba(16,24,40,.06);transition:transform .15s ease,box-shadow .2s ease;cursor:default}
+.sk::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+.sk:hover{transform:translateY(-1px);box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 4px 10px -4px rgba(16,24,40,.18)}
+.k-skill{color:var(--ai);background:var(--ai-soft);border-color:color-mix(in srgb,var(--ai) 28%,transparent)}
+.k-cert{color:var(--ok);background:var(--ok-soft);border-color:color-mix(in srgb,var(--ok) 32%,transparent)}
+.k-tool{color:var(--accent);background:var(--accent-soft);border-color:color-mix(in srgb,var(--accent) 28%,transparent)}
+.cap .chips{gap:8px}
+.cap-legend{display:flex;flex-wrap:wrap;gap:12px 28px;margin-top:22px;padding:16px 20px;border:1px dashed var(--border-strong);border-radius:14px;font-size:13.5px;color:var(--text-2);align-items:center}
+.cap-legend .lg{display:inline-flex;align-items:center;gap:10px}
+.cap-legend .sk{font-size:12px;padding:4px 10px}
+.cap-legend .sk:hover{transform:none}
 .toolkit{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-top:22px}
 .tk{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px}
 .tk h4{font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:500;margin:0 0 6px}
@@ -344,9 +354,8 @@ dialog.modal::backdrop{background:rgba(10,12,17,.55);-webkit-backdrop-filter:blu
 .tk .n{display:block;font-size:14px;font-weight:500}
 .tk .note{display:block;font-size:12px;color:var(--muted);line-height:1.4}
 @media (max-width: 1100px){.toolkit{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media (max-width: 1000px){.cap-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width: 700px){.toolkit{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width: 620px){.cap-grid{grid-template-columns:1fr}}
+@media (max-width: 760px){.cap-grid{display:flex;flex-direction:column;gap:14px}.cap-col{display:contents}.cap{order:var(--o)}}
 @media (max-width: 460px){.toolkit{grid-template-columns:1fr}}
 
 /* ============ CV ============ */
@@ -771,52 +780,43 @@ footer.foot .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:
     <p class="eyebrow">Capabilities</p>
     <h2>What I bring, in the words <span class="serif">hiring teams use.</span></h2>
     <p class="lede">Grouped by the job it serves. Every item is backed by a role, a build or a certification on this page.</p>
-    <div class="legend"><span class="chip cert"><svg aria-hidden="true"><use href="#i-check"/></svg>Certified</span><span>= backed by a formal certification. All other items are skills from my roles and builds.</span></div>
-
     <div class="cap-grid">
-      <div class="cap reveal">
-        <h3>Customer Success</h3>
-        <p class="hint">Adoption, value and retention at enterprise scale</p>
-        <div class="chips">
-          <span class="chip">Customer success strategy</span><span class="chip">Adoption &amp; value realization</span><span class="chip">Success planning</span><span class="chip">Usage KPIs &amp; customer health</span><span class="chip">Retention &amp; churn reduction</span><span class="chip">Net revenue retention (NRR)</span><span class="chip">Expansion (upsell / cross-sell)</span><span class="chip">EBR / QBR preparation</span><span class="chip">Digital / scaled CS</span><span class="chip">Trusted-advisor relationships</span><span class="chip">Escalation management</span><span class="chip">Feature adoption after releases</span><span class="chip">Onboarding</span><span class="chip">CSAT &amp; NPS</span><span class="chip">Center of Excellence build-out</span><span class="chip">Source-to-Pay &amp; procurement domain</span>
-        </div>
-      </div>
-      <div class="cap reveal">
-        <h3>Customer Operations</h3>
-        <p class="hint">Running support as a system, not a queue</p>
-        <div class="chips">
-          <span class="chip">Operating model design</span><span class="chip">Tier 1 / Tier 2 support</span><span class="chip">Incident management</span><span class="chip">Launch &amp; release readiness</span><span class="chip">Voice of the Customer</span><span class="chip">Contact-driver analysis</span><span class="chip">Amazon marketplace VoC</span><span class="chip">Partner &amp; vendor operations</span><span class="chip">Knowledge management</span><span class="chip">Workforce planning &amp; scheduling</span><span class="chip">Capacity planning</span><span class="chip">Vendor / BPO coordination</span><span class="chip">SLA &amp; QA systems</span><span class="chip">Chargeback &amp; refund workflows</span><span class="chip">SOPs</span>
-        </div>
-      </div>
-      <div class="cap reveal">
-        <h3>AI implementation</h3>
-        <p class="hint">From pilot to production, with guardrails</p>
-        <div class="chips">
-          <span class="chip ai">AI strategy for CS teams</span><span class="chip ai">Copilot Studio agents</span><span class="chip ai">Agentic workflows</span><span class="chip ai">Custom GPTs</span><span class="chip ai">Retrieval-augmented generation (RAG)</span><span class="chip ai">Knowledge grounding &amp; citations</span><span class="chip ai">Hallucination control</span><span class="chip ai">Bot-per-product routing</span><span class="chip ai">Prompt engineering</span><span class="chip ai">Output evaluation &amp; grading</span><span class="chip ai">Human-in-the-loop design</span><span class="chip ai">Privacy-by-design</span><span class="chip ai">AI adoption &amp; change management</span><span class="chip ai">Pilot-to-production rollout</span><span class="chip ai">Time-saved ROI tracking</span><span class="chip ai">Agentic coding (Claude Code, Windsurf)</span>
-        </div>
-      </div>
-      <div class="cap reveal">
-        <h3>Automation &amp; data</h3>
-        <p class="hint">The stack behind the tools</p>
-        <div class="chips">
-          <span class="chip ai">Power Apps</span><span class="chip ai">Power Automate</span><span class="chip ai">Microsoft Graph</span><span class="chip">SharePoint &amp; Microsoft Lists</span><span class="chip">Dataverse</span><span class="chip">Matik</span><span class="chip">Snowflake</span><span class="chip">Python</span><span class="chip">python-pptx</span><span class="chip">Playwright</span><span class="chip">Power BI</span><span class="chip">Tableau</span><span class="chip">Excel / Sheets</span><span class="chip">KPI dashboards</span>
-        </div>
-      </div>
-      <div class="cap reveal">
-        <h3>Governance &amp; compliance</h3>
-        <p class="hint">Regulated-domain rigor</p>
-        <div class="chips">
-          <span class="chip">GDPR</span><span class="chip">CCPA</span><span class="chip">FDA-reviewed safety documentation</span><span class="chip">US &amp; AU regulatory compliance</span><span class="chip">Customer communication compliance</span><span class="chip cert"><svg aria-hidden="true"><use href="#i-check"/></svg>ISO/IEC 17020</span><span class="chip">Internal audits</span><span class="chip">CAPA</span><span class="chip">Root cause analysis</span><span class="chip cert"><svg aria-hidden="true"><use href="#i-check"/></svg>Procurement (CSCMP)</span><span class="chip">Supply chain management</span>
-        </div>
-      </div>
-      <div class="cap reveal">
+      <div class="cap-col">
+      <div class="cap reveal" style="--o:1">
         <h3>Leadership &amp; platforms</h3>
         <p class="hint">People, delivery and the systems I've run</p>
-        <div class="chips">
-          <span class="chip">ELT reporting</span><span class="chip">Cross-functional influence</span><span class="chip">Remote / global team leadership</span><span class="chip">Hiring &amp; onboarding</span><span class="chip">Coaching &amp; performance management</span><span class="chip cert"><svg aria-hidden="true"><use href="#i-check"/></svg>Scrum Master (CSM)</span><span class="chip cert"><svg aria-hidden="true"><use href="#i-check"/></svg>Agile PM (Atlassian)</span><span class="chip cert"><svg aria-hidden="true"><use href="#i-check"/></svg>Negotiation</span><span class="chip cert"><svg aria-hidden="true"><use href="#i-check"/></svg>Risk management</span><span class="chip cert"><svg aria-hidden="true"><use href="#i-check"/></svg>Customer experience management</span><span class="chip cert"><svg aria-hidden="true"><use href="#i-check"/></svg>Zendesk</span><span class="chip">Salesforce</span><span class="chip">ServiceNow</span><span class="chip">Freshdesk</span><span class="chip">Gorgias</span><span class="chip">Intercom</span><span class="chip">Jira</span><span class="chip">Confluence</span><span class="chip">Trello</span><span class="chip">Stripe</span><span class="chip">Shopify</span><span class="chip">Amazon Seller Central</span><span class="chip">Highspot</span><span class="chip">Notion</span><span class="chip">Miro</span><span class="chip">Google Workspace</span><span class="chip">Microsoft 365</span>
-        </div>
+        <div class="chips"><span class="sk k-skill">ELT reporting</span><span class="sk k-skill">Cross-functional influence</span><span class="sk k-skill">Stakeholder management</span><span class="sk k-skill">Remote / global team leadership</span><span class="sk k-skill">Hiring &amp; onboarding</span><span class="sk k-skill">Coaching &amp; performance management</span><span class="sk k-cert">Scrum Master (CSM)</span><span class="sk k-cert">Agile PM (Atlassian)</span><span class="sk k-cert">Negotiation</span><span class="sk k-cert">Risk management</span><span class="sk k-cert">Customer experience management</span><span class="sk k-cert">Zendesk</span><span class="sk k-tool">Salesforce</span><span class="sk k-tool">ServiceNow</span><span class="sk k-tool">Freshdesk</span><span class="sk k-tool">Gorgias</span><span class="sk k-tool">Intercom</span><span class="sk k-tool">Jira</span><span class="sk k-tool">Confluence</span><span class="sk k-tool">Trello</span><span class="sk k-tool">Stripe</span><span class="sk k-tool">Shopify</span><span class="sk k-tool">Amazon Seller Central</span><span class="sk k-tool">Highspot</span><span class="sk k-tool">Notion</span><span class="sk k-tool">Miro</span><span class="sk k-tool">Google Workspace</span><span class="sk k-tool">Microsoft 365</span></div>
+      </div>
+      <div class="cap reveal" style="--o:3">
+        <h3>Customer Operations</h3>
+        <p class="hint">Running support as a system, not a queue</p>
+        <div class="chips"><span class="sk k-skill">Operating model design</span><span class="sk k-skill">Tier 1 / Tier 2 support</span><span class="sk k-skill">Incident management</span><span class="sk k-skill">Launch &amp; release readiness</span><span class="sk k-skill">Voice of the Customer</span><span class="sk k-skill">Contact-driver analysis</span><span class="sk k-skill">Amazon marketplace VoC</span><span class="sk k-skill">Partner &amp; vendor operations</span><span class="sk k-skill">Knowledge management</span><span class="sk k-skill">Workforce planning &amp; scheduling</span><span class="sk k-skill">Capacity planning</span><span class="sk k-skill">Vendor / BPO coordination</span><span class="sk k-skill">SLA &amp; QA systems</span><span class="sk k-skill">Chargeback &amp; refund workflows</span><span class="sk k-skill">SOPs</span></div>
+      </div>
+      <div class="cap reveal" style="--o:5">
+        <h3>Automation &amp; data</h3>
+        <p class="hint">The stack behind the tools</p>
+        <div class="chips"><span class="sk k-skill">KPI dashboards</span><span class="sk k-skill">Workflow automation</span><span class="sk k-tool">Power Apps</span><span class="sk k-tool">Power Automate</span><span class="sk k-tool">Microsoft Graph</span><span class="sk k-tool">SharePoint &amp; Microsoft Lists</span><span class="sk k-tool">Dataverse</span><span class="sk k-tool">Matik</span><span class="sk k-tool">Snowflake</span><span class="sk k-tool">Python</span><span class="sk k-tool">python-pptx</span><span class="sk k-tool">Playwright</span><span class="sk k-tool">Power BI</span><span class="sk k-tool">Tableau</span><span class="sk k-tool">Excel / Sheets</span></div>
+      </div>
+      </div>
+      <div class="cap-col">
+      <div class="cap reveal" style="--o:2">
+        <h3>Customer Success</h3>
+        <p class="hint">Adoption, value and retention at enterprise scale</p>
+        <div class="chips"><span class="sk k-skill">Customer success strategy</span><span class="sk k-skill">Adoption &amp; value realization</span><span class="sk k-skill">Success planning</span><span class="sk k-skill">Usage KPIs &amp; customer health</span><span class="sk k-skill">Retention &amp; churn reduction</span><span class="sk k-skill">Net revenue retention (NRR)</span><span class="sk k-skill">Expansion (upsell / cross-sell)</span><span class="sk k-skill">EBR / QBR preparation</span><span class="sk k-skill">Digital / scaled CS</span><span class="sk k-skill">Trusted-advisor relationships</span><span class="sk k-skill">Escalation management</span><span class="sk k-skill">Feature adoption after releases</span><span class="sk k-skill">Onboarding</span><span class="sk k-skill">CSAT &amp; NPS</span><span class="sk k-skill">Center of Excellence build-out</span><span class="sk k-skill">Source-to-Pay &amp; procurement domain</span></div>
+      </div>
+      <div class="cap reveal" style="--o:4">
+        <h3>AI implementation</h3>
+        <p class="hint">From pilot to production, with guardrails</p>
+        <div class="chips"><span class="sk k-skill">AI strategy for CS teams</span><span class="sk k-skill">Copilot Studio agents</span><span class="sk k-skill">Agentic workflows</span><span class="sk k-skill">Custom GPTs</span><span class="sk k-skill">Retrieval-augmented generation (RAG)</span><span class="sk k-skill">Knowledge grounding &amp; citations</span><span class="sk k-skill">Hallucination control</span><span class="sk k-skill">Bot-per-product routing</span><span class="sk k-skill">Prompt engineering</span><span class="sk k-skill">Output evaluation &amp; grading</span><span class="sk k-skill">Human-in-the-loop design</span><span class="sk k-skill">Privacy-by-design</span><span class="sk k-skill">AI adoption &amp; change management</span><span class="sk k-skill">Pilot-to-production rollout</span><span class="sk k-skill">Time-saved ROI tracking</span><span class="sk k-skill">Agentic coding (Claude Code, Windsurf)</span></div>
+      </div>
+      <div class="cap reveal" style="--o:6">
+        <h3>Governance &amp; compliance</h3>
+        <p class="hint">Regulated-domain rigor</p>
+        <div class="chips"><span class="sk k-skill">GDPR</span><span class="sk k-skill">CCPA</span><span class="sk k-skill">FDA-reviewed safety documentation</span><span class="sk k-skill">US &amp; AU regulatory compliance</span><span class="sk k-skill">Customer communication compliance</span><span class="sk k-skill">Internal audits</span><span class="sk k-skill">CAPA</span><span class="sk k-skill">Root cause analysis</span><span class="sk k-skill">Supply chain management</span><span class="sk k-cert">ISO/IEC 17020</span><span class="sk k-cert">Procurement (CSCMP)</span></div>
+      </div>
       </div>
     </div>
+    <div class="cap-legend" aria-label="Color key"><span class="lg"><span class="sk k-skill">Skill</span>from my roles and builds</span><span class="lg"><span class="sk k-cert">Certified</span>backed by a formal certificate</span><span class="lg"><span class="sk k-tool">Tool / platform</span>used hands-on</span></div>
 
     <h3 class="subhead">Daily toolkit</h3>
     <p class="lede">The assistants, editors and studios I work in every week.</p>
